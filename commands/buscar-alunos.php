@@ -9,10 +9,9 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $entityManagerFactory = new EntityManagerFactory();
 $entityManager = $entityManagerFactory->getEntityManager();
 
-$alunoRepository = $entityManager->getRepository(Aluno::class);
-
-/** @var Aluno[] $alunoList */
-$alunoList = $alunoRepository->findAll();
+$dql = 'SELECT aluno FROM Alura\Doctrine\Entity\Aluno aluno';
+$query=$entityManager->createQuery($dql);
+$alunoList=$query->getResult();
 
 foreach ($alunoList as $aluno) {
     $telefones=$aluno->getTelefone()->map(function (Telefone $telefone){

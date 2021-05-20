@@ -14,7 +14,7 @@ class Curso
     /**
      * @Id
      * @GeneratedValue
-     * @Column {type="integer"}
+     * @Column (type="integer")
      */
     private int $id;
 
