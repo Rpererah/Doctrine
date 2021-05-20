@@ -9,7 +9,7 @@ $entityManagerFactory = new EntityManagerFactory();
 $entityManager = $entityManagerFactory->getEntityManager();
 
 $curso = new Curso();
-$curso->setNome("fundametos");
+$curso->setNome($argv[1]);
 
 $entityManager->persist($curso);
 $entityManager->flush();
